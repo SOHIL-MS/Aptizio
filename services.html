@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Aptizio</title>
+  <meta name="description" content="Explore Aptizio services: performance marketing, social media management, graphic design, and video production/editing.">
+  <link rel="icon" type="image/png" href="img/Aptizio1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --ink: #070a0d;
+      --ink2: #0c1014;
+      --surface: #111619;
+      --surface2: #161c21;
+      --text: #f0ece3;
+      --muted: rgba(240,236,227,.62);
+      --line: rgba(240,236,227,.09);
+      --gold: #c9a84c;
+      --gold-light: #e8ca7a;
+      --gold-dim: rgba(201,168,76,.18);
+      --header-bg: rgba(7,10,13,.88);
+      --r: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--text); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 99px; }
+    .wrap { width: min(1180px, 92%); margin: 0 auto; }
+
+    /* ── HEADER ── */
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--header-bg); backdrop-filter: blur(24px); border-bottom: 1px solid var(--line); }
+    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: .65rem; font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: -.01em; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(201,168,76,.3); }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-links { display: flex; list-style: none; gap: .15rem; }
+    .nav-links a { padding: .42rem .9rem; border-radius: 99px; color: var(--muted); font-size: .83rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: .5rem; }
+    .nav-cta { padding: .5rem 1.2rem; border-radius: 99px; font-size: .8rem; font-weight: 600; background: var(--gold); color: #0a0800; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .88; }
+    .btn-icon { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; display: grid; place-content: center; transition: border-color .2s, color .2s; }
+    .btn-icon:hover { border-color: rgba(201,168,76,.4); color: var(--gold); }
+    .mb-btn { display: none; background: transparent; border: 1px solid var(--line); width: 36px; height: 36px; border-radius: 50%; color: var(--text); cursor: pointer; place-content: center; }
+    .mob-nav { display: none; flex-direction: column; border-top: 1px solid var(--line); background: rgba(7,10,13,.97); }
+    .mob-nav a { padding: .9rem 5%; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .mob-nav.open { display: flex; }
+
+    /* ── HERO ── */
+    .hero { padding: 7rem 0 5rem; position: relative; overflow: hidden; }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 75% 60% at 58% 38%, rgba(201,168,76,.065) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label { display: inline-flex; align-items: center; gap: .5rem; padding: .28rem .72rem; border-radius: 99px; border: 1px solid rgba(201,168,76,.28); background: rgba(201,168,76,.06); color: var(--gold); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5.2vw, 4.2rem); font-weight: 900; line-height: 1.08; letter-spacing: -.025em; max-width: 18ch; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub { color: var(--muted); font-size: 1.02rem; line-height: 1.82; max-width: 55ch; margin-top: 1.3rem; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary { padding: .72rem 1.6rem; border-radius: 99px; background: var(--gold); color: #090600; font-weight: 700; font-size: .88rem; letter-spacing: .025em; border: none; cursor: pointer; transition: opacity .2s, transform .15s; display: inline-block; }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-ghost { padding: .7rem 1.6rem; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); font-size: .88rem; font-weight: 500; display: inline-block; transition: border-color .2s, color .2s; }
+    .btn-ghost:hover { border-color: rgba(201,168,76,.35); color: var(--text); }
+
+    /* ── SECTION TITLE ── */
+    .sec-label { font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.18; }
+    .sec-title em { font-style: normal; color: var(--gold); }
+    .sec-sub { color: var(--muted); font-size: .95rem; line-height: 1.75; margin-top: .65rem; max-width: 58ch; font-weight: 300; }
+    .section { padding: 5rem 0; border-top: 1px solid var(--line); }
+
+    /* ── SERVICE CARDS ── */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.3rem; margin-top: 2.8rem; }
+
+    .srv-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .25s, transform .22s;
+    }
+    .srv-card:hover { border-color: rgba(201,168,76,.22); transform: translateY(-4px); }
+
+    .srv-img-wrap { position: relative; height: 190px; overflow: hidden; }
+    .srv-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+    .srv-card:hover .srv-img-wrap img { transform: scale(1.06); }
+    .srv-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,10,13,.75) 0%, rgba(7,10,13,.1) 55%, transparent 100%); }
+
+    .srv-icon-wrap {
+      position: absolute; bottom: .9rem; left: .9rem;
+      width: 40px; height: 40px; border-radius: 11px;
+      background: rgba(201,168,76,.18); border: 1px solid rgba(201,168,76,.35);
+      display: grid; place-content: center;
+      color: var(--gold-light); font-size: .95rem;
+    }
+
+    .srv-body { padding: 1.3rem 1.3rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+    .srv-badge { display: inline-block; padding: .2rem .6rem; border-radius: 99px; border: 1px solid rgba(201,168,76,.28); background: rgba(201,168,76,.07); color: var(--gold); font-size: .67rem; font-weight: 600; letter-spacing: .07em; margin-bottom: .75rem; }
+    .srv-title { font-family: 'Playfair Display', serif; font-size: 1.18rem; font-weight: 700; margin-bottom: .4rem; }
+    .srv-desc { color: var(--muted); font-size: .87rem; line-height: 1.7; font-weight: 300; flex: 1; }
+    .srv-features { list-style: none; display: grid; gap: .38rem; margin-top: 1rem; }
+    .srv-features li { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--muted); font-weight: 300; }
+    .srv-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; opacity: .7; }
+    .srv-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+    .srv-price { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+    .srv-link { display: inline-flex; align-items: center; gap: .35rem; padding: .42rem .9rem; border-radius: 99px; background: var(--gold); color: #090600; font-size: .76rem; font-weight: 700; transition: opacity .2s; }
+    .srv-link:hover { opacity: .86; }
+    .srv-link i { font-size: .68rem; }
+
+    /* ── FEATURED SERVICE (wide) ── */
+    .srv-card.wide { grid-column: span 2; flex-direction: row; }
+    .srv-card.wide .srv-img-wrap { height: auto; width: 42%; flex-shrink: 0; }
+    .srv-card.wide .srv-img-wrap img { height: 100%; }
+
+    /* ── PROCESS SECTION ── */
+    .process-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 2.8rem; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+    .process-step { background: var(--surface); padding: 1.6rem 1.4rem; position: relative; transition: background .2s; }
+    .process-step:hover { background: var(--surface2); }
+    .step-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: rgba(201,168,76,.18); line-height: 1; margin-bottom: .8rem; }
+    .step-title { font-weight: 600; font-size: .95rem; margin-bottom: .4rem; }
+    .step-desc { color: var(--muted); font-size: .84rem; line-height: 1.65; font-weight: 300; }
+    .step-icon { position: absolute; top: 1.4rem; right: 1.4rem; color: var(--gold); font-size: .88rem; opacity: .6; }
+
+    /* ── WEB DEV FEATURE ── */
+    .webdev-block {
+      margin-top: 2.8rem;
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: var(--r);
+      background: linear-gradient(140deg, rgba(22,18,9,.6), rgba(12,14,10,.8));
+      overflow: hidden;
+    }
+    .webdev-inner { display: grid; grid-template-columns: 1fr 1fr; }
+    .webdev-img { height: 100%; min-height: 280px; overflow: hidden; }
+    .webdev-img img { width: 100%; height: 100%; object-fit: cover; }
+    .webdev-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .webdev-content h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; margin-bottom: .7rem; }
+    .webdev-content p { color: var(--muted); font-size: .9rem; line-height: 1.75; font-weight: 300; margin-bottom: 1.4rem; }
+    .web-tiers { display: grid; gap: .7rem; margin-bottom: 1.6rem; }
+    .web-tier { padding: .9rem 1rem; border: 1px solid var(--line); border-radius: 11px; background: rgba(255,255,255,.02); }
+    .web-tier h4 { font-size: .88rem; font-weight: 600; color: var(--gold); margin-bottom: .22rem; }
+    .web-tier span { font-size: .82rem; color: var(--muted); font-weight: 300; }
+    .webdev-btns { display: flex; gap: .8rem; flex-wrap: wrap; }
+
+    /* ── INDUSTRIES STRIP ── */
+    .industries { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.5rem; }
+    .ind-pill { padding: .35rem .9rem; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: .8rem; font-weight: 400; transition: border-color .2s, color .2s; }
+    .ind-pill:hover { border-color: rgba(201,168,76,.3); color: var(--gold); }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      margin: 4rem 0 2rem;
+      background: linear-gradient(135deg, rgba(201,168,76,.1) 0%, rgba(45,90,60,.08) 100%);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 22px;
+      padding: 3.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    }
+    .cta-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; }
+    .cta-strip p { color: var(--muted); font-size: .9rem; margin-top: .45rem; font-weight: 300; }
+    .cta-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--ink2); border-top: 1px solid var(--line); padding: 3.5rem 0 1.4rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
+    .ft-brand { display: flex; align-items: center; gap: .65rem; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: .9rem; }
+    .ft-logo { width: 32px; height: 32px; border-radius: 9px; overflow: hidden; border: 1px solid rgba(201,168,76,.3); }
+    .ft-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .ft-desc { color: var(--muted); font-size: .85rem; line-height: 1.72; max-width: 30ch; font-weight: 300; }
+    .ft-head { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 700; }
+    .ft-links { list-style: none; display: grid; gap: .5rem; }
+    .ft-links a { color: var(--muted); font-size: .85rem; transition: color .2s; font-weight: 300; }
+    .ft-links a:hover { color: var(--text); }
+    .ft-contact { color: var(--muted); font-size: .85rem; margin-bottom: .35rem; font-weight: 300; display: flex; align-items: center; gap: .5rem; }
+    .ft-contact i { color: var(--gold); font-size: .78rem; }
+    .footer-bottom { padding-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: .77rem; }
+    .footer-bottom a { color: var(--muted); transition: color .2s; }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .anim { animation: fadeUp .5s ease both; }
+    .anim-1 { animation-delay: .1s; }
+    .anim-2 { animation-delay: .2s; }
+    .anim-3 { animation-delay: .3s; }
+
+    /* ── LIGHT THEME ── */
+    body.light {
+      --ink: #f5f2ea;
+      --ink2: #ece9e0;
+      --surface: #ffffff;
+      --surface2: #f9f7f1;
+      --text: #161209;
+      --muted: rgba(22,18,9,.62);
+      --line: rgba(22,18,9,.1);
+      --gold: #96700a;
+      --gold-light: #a07810;
+      --gold-dim: rgba(150,112,10,.1);
+      --header-bg: rgba(245,242,234,.9);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .nav-links, .nav-cta { display: none; }
+      .mb-btn { display: grid; }
+      .srv-card.wide { grid-column: span 1; flex-direction: column; }
+      .srv-card.wide .srv-img-wrap { width: 100%; height: 200px; }
+      .process-row { grid-template-columns: repeat(2, 1fr); }
+      .webdev-inner { grid-template-columns: 1fr; }
+      .webdev-img { min-height: 220px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .cta-strip { padding: 2rem; }
+    }
+    @media (max-width: 620px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .process-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero { padding: 4.5rem 0 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><img src="img/Aptizio.jpeg" alt="Aptizio"></div>
+        <span>Aptizio</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-icon" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <a href="contact.html" class="nav-cta">Book a Call</a>
+        <button class="mb-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+    <div class="mob-nav" id="mobNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-label anim anim-1"><i class="fa-solid fa-rocket"></i> What We Do</div>
+        <h1 class="anim anim-2">Services engineered for <em>real growth.</em></h1>
+        <p class="hero-sub anim anim-3">High-impact marketing and creative execution for brands that want consistent leads, a strong online presence, and a premium visual identity — all under one roof.</p>
+        <div class="hero-actions anim anim-3">
+          <a href="contact.html" class="btn-primary">Start a Project</a>
+          <a href="pricing.html" class="btn-ghost">View Pricing <i class="fa-solid fa-arrow-right" style="font-size:.75em;margin-left:.3rem"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES GRID ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-label">Our Services</div>
+        <div class="sec-title">Everything your brand <em>needs</em></div>
+        <p class="sec-sub">Nine specialist services — from strategy to creative execution — delivered by one dedicated team.</p>
+
+        <div class="services-grid">
+
+          <!-- FEATURED: Meta Ads (wide) -->
+          <article class="srv-card wide">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80" alt="Performance Marketing Meta Ads" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-brands fa-meta"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">Meta Ads · Most Popular</span>
+              <div class="srv-title">Performance Marketing</div>
+              <div class="srv-desc">Full-funnel Meta advertising with audience research, layered segmentation, A/B creative testing, retargeting flows, and conversion tracking — focused entirely on measurable ROI.</div>
+              <ul class="srv-features">
+                <li>Campaign structure + audience strategy</li>
+                <li>Ad creative production + split testing</li>
+                <li>Retargeting + lookalike expansion</li>
+                <li>Weekly reporting + monthly ROAS review</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹18,000/mo</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Web Development -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=700&q=80" alt="Web Development" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">Web Development</span>
+              <div class="srv-title">Web Development</div>
+              <div class="srv-desc">Business websites, landing pages, and conversion-focused custom builds — fast, clean, and built to generate leads from day one.</div>
+              <ul class="srv-features">
+                <li>Responsive design + mobile-first</li>
+                <li>Lead forms + WhatsApp integration</li>
+                <li>Speed optimisation + basic SEO setup</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹30,000</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- SEO -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=700&q=80" alt="SEO Optimization" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">SEO</span>
+              <div class="srv-title">SEO Optimization</div>
+              <div class="srv-desc">Technical audits, keyword mapping, and on-page/off-page strategy to drive quality organic traffic and improve Google rankings consistently.</div>
+              <ul class="srv-features">
+                <li>Keyword research + content mapping</li>
+                <li>Technical + on-page SEO fixes</li>
+                <li>Monthly ranking + traffic report</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹16,000/mo</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Digital Marketing -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Digital Marketing" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-bullhorn"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">Digital Marketing</span>
+              <div class="srv-title">Digital Marketing</div>
+              <div class="srv-desc">End-to-end campaign planning, creative rollout, lead funnels, and monthly performance reporting designed for consistent and trackable growth.</div>
+              <ul class="srv-features">
+                <li>Campaign planning + execution</li>
+                <li>Landing page + funnel strategy</li>
+                <li>Monthly performance reporting</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹22,000/mo</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Brand Identity -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=700&q=80" alt="Brand Identity" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-pen-nib"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">Branding</span>
+              <div class="srv-title">Brand Identity</div>
+              <div class="srv-desc">Logo systems, visual language, typography, and brand style direction that builds trust, memorability, and premium positioning for your brand.</div>
+              <ul class="srv-features">
+                <li>Logo design + visual identity</li>
+                <li>Color + typography system</li>
+                <li>Brand guidelines document</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹20,000</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Social Media -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=700&q=80" alt="Social Media Management" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-hashtag"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">Social Media</span>
+              <div class="srv-title">Social Media Managing</div>
+              <div class="srv-desc">Content calendar creation, daily posting, engagement handling, and insight reporting — keeping your social accounts active, growing, and on-brand.</div>
+              <ul class="srv-features">
+                <li>Monthly content calendar</li>
+                <li>Post + reel scheduling</li>
+                <li>Engagement + growth tracking</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹15,000/mo</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- UI/UX -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=700&q=80" alt="UI UX Design" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-bezier-curve"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">UI / UX Design</span>
+              <div class="srv-title">UI / UX Design</div>
+              <div class="srv-desc">User-focused interface and journey design that improves usability, reduces friction, and turns visitors into customers through thoughtful experience design.</div>
+              <ul class="srv-features">
+                <li>User flow + wireframe design</li>
+                <li>High-fidelity interface screens</li>
+                <li>Handoff-ready design components</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹18,000</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphic Design -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Graphic Design" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-palette"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">Graphic Design</span>
+              <div class="srv-title">Graphic Design</div>
+              <div class="srv-desc">Ad creatives, social graphics, brochures, and campaign visuals crafted for high brand impact and visual consistency across every touchpoint.</div>
+              <ul class="srv-features">
+                <li>Social creatives + banners</li>
+                <li>Ad creative production</li>
+                <li>Brand visual consistency</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹12,000/mo</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Video -->
+          <article class="srv-card">
+            <div class="srv-img-wrap">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=700&q=80" alt="Video Production and Editing" loading="lazy">
+              <div class="srv-img-overlay"></div>
+              <div class="srv-icon-wrap"><i class="fa-solid fa-clapperboard"></i></div>
+            </div>
+            <div class="srv-body">
+              <span class="srv-badge">Video</span>
+              <div class="srv-title">Video Production & Editing</div>
+              <div class="srv-desc">Reels, ad videos, promo edits, colour grading, and platform-ready exports optimised for attention, engagement, and conversion on social.</div>
+              <ul class="srv-features">
+                <li>Short-form reels + ad videos</li>
+                <li>Colour, captions + motion text</li>
+                <li>Platform-ready aspect ratios</li>
+              </ul>
+              <div class="srv-footer">
+                <span class="srv-price">From ₹14,000/mo</span>
+                <a href="pricing.html" class="srv-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW WE WORK ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-label">Our Process</div>
+        <div class="sec-title">How we <em>work</em> with you</div>
+        <p class="sec-sub">A clear, four-step process from first call to live results — so you always know what's happening and why.</p>
+
+        <div class="process-row">
+          <div class="process-step">
+            <i class="step-icon fa-solid fa-phone"></i>
+            <div class="step-num">01</div>
+            <div class="step-title">Discovery Call</div>
+            <p class="step-desc">We learn your goals, budget, and current situation. No pitch — just honest questions to find the right fit.</p>
+          </div>
+          <div class="process-step">
+            <i class="step-icon fa-solid fa-file-lines"></i>
+            <div class="step-num">02</div>
+            <div class="step-title">Strategy & Proposal</div>
+            <p class="step-desc">We build a custom plan with clear deliverables, timelines, and pricing — nothing vague or hidden.</p>
+          </div>
+          <div class="process-step">
+            <i class="step-icon fa-solid fa-rocket"></i>
+            <div class="step-num">03</div>
+            <div class="step-title">Execution</div>
+            <p class="step-desc">Your dedicated team gets to work — building, designing, launching, and optimising every deliverable.</p>
+          </div>
+          <div class="process-step">
+            <i class="step-icon fa-solid fa-chart-line"></i>
+            <div class="step-num">04</div>
+            <div class="step-title">Report & Scale</div>
+            <p class="step-desc">Monthly performance reviews with clear data. We iterate, optimise, and scale what's working for you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WEB DEV FEATURE ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-label">Spotlight</div>
+        <div class="sec-title">Web development <em>in detail</em></div>
+
+        <div class="webdev-block">
+          <div class="webdev-inner">
+            <div class="webdev-img">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80" alt="Web development detail" loading="lazy">
+            </div>
+            <div class="webdev-content">
+              <p>From one-page launches to complete business websites — Aptizio builds modern sites that look premium, load fast, and are built to convert visitors into leads from day one.</p>
+              <div class="web-tiers">
+                <div class="web-tier">
+                  <h4>Starter Website</h4>
+                  <span>Up to 5 pages, responsive design, contact form, and SEO-ready setup.</span>
+                </div>
+                <div class="web-tier">
+                  <h4>Business Website</h4>
+                  <span>Custom design system, service pages, WhatsApp/lead integration, and speed optimisation.</span>
+                </div>
+                <div class="web-tier">
+                  <h4>Advanced Custom Build</h4>
+                  <span>Dynamic sections, advanced interactions, analytics setup, and scalable architecture.</span>
+                </div>
+              </div>
+              <div class="webdev-btns">
+                <a href="pricing.html" class="btn-primary">View Web Pricing</a>
+                <a href="portfolio.html" class="btn-ghost">See Projects <i class="fa-regular fa-eye" style="font-size:.8em;margin-left:.3rem"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INDUSTRIES ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-label">Industries We Serve</div>
+        <div class="sec-title">Built for <em>every sector</em></div>
+        <p class="sec-sub">We've worked with brands across retail, healthcare, hospitality, real estate, fitness, beauty, and more.</p>
+        <div class="industries">
+          <span class="ind-pill">E-commerce</span>
+          <span class="ind-pill">Real Estate</span>
+          <span class="ind-pill">Healthcare</span>
+          <span class="ind-pill">Hospitality & Food</span>
+          <span class="ind-pill">Fitness & Wellness</span>
+          <span class="ind-pill">Fashion & Beauty</span>
+          <span class="ind-pill">Education</span>
+          <span class="ind-pill">Interior Design</span>
+          <span class="ind-pill">Finance</span>
+          <span class="ind-pill">Professional Services</span>
+          <span class="ind-pill">Retail</span>
+          <span class="ind-pill">Startups</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <div class="wrap">
+      <div class="cta-strip">
+        <div>
+          <h2>Not sure where to start?</h2>
+          <p>Book a free 30-minute strategy call — we'll recommend the right services for your goals and budget.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-primary">Book Free Call</a>
+          <a href="portfolio.html" class="btn-ghost">See Our Work</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="ft-brand"><div class="ft-logo"><img src="img/Aptizio.jpeg" alt="Aptizio"></div><span>Aptizio</span></div>
+          <p class="ft-desc">Premium digital agency focused on measurable growth and elegant experiences for ambitious brands.</p>
+        </div>
+        <div>
+          <div class="ft-head">Services</div>
+          <ul class="ft-links">
+            <li><a href="services.html">Performance Marketing</a></li>
+            <li><a href="services.html">Social Media Management</a></li>
+            <li><a href="services.html">Graphic Design</a></li>
+            <li><a href="services.html">Video Editing</a></li>
+            <li><a href="services.html">Web Development</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-head">Contact</div>
+          <p class="ft-contact"><i class="fa-solid fa-envelope"></i> hello@aptizio.in</p>
+          <p class="ft-contact"><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p class="ft-contact"><i class="fa-solid fa-location-dot"></i> Kozhikode, Kerala</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Aptizio. All rights reserved.</span>
+        <span><a href="portfolio.html">Portfolio</a> · <a href="pricing.html">Pricing</a> · <a href="contact.html">Contact</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobNav = document.getElementById("mobNav");
+    menuBtn.addEventListener("click", () => {
+      const open = mobNav.classList.toggle("open");
+      menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Theme toggle
+    const tb = document.getElementById("themeBtn");
+    let isLight = false;
+    tb.addEventListener("click", () => {
+      isLight = !isLight;
+      document.body.classList.toggle("light", isLight);
+      tb.querySelector("i").className = isLight ? "fa-solid fa-moon" : "fa-solid fa-sun";
+      localStorage.setItem("aptizio-theme", isLight ? "light" : "dark");
+    });
+    if (localStorage.getItem("aptizio-theme") === "light") {
+      isLight = true;
+      document.body.classList.add("light");
+      tb.querySelector("i").className = "fa-solid fa-moon";
+    }
+
+    // Scroll-reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = "fadeUp .5s ease both";
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll(".srv-card, .process-step, .web-tier, .ind-pill").forEach(el => {
+      el.style.opacity = "0";
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

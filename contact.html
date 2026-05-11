@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Aptizio</title>
+  <meta name="description" content="Contact Aptizio for web development, digital marketing, social media, design, and video production services.">
+  <link rel="icon" type="image/png" href="img/Aptizio1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root{--ink:#06080a;--ink2:#111519;--text:#f0ece0;--muted:rgba(240,236,224,.72);--line:rgba(240,236,224,.12);--gold:#d4b060;--fern:#3d6b50;--r:14px;--header-bg:rgba(6,8,10,.86);--header-bg-solid:rgba(6,8,10,.97);--card-a:#11161a;--card-b:#0d1115}
+    *{box-sizing:border-box;margin:0;padding:0} body{font-family:'Syne',sans-serif;background:var(--ink);color:var(--text)} a{text-decoration:none;color:inherit}
+    .wrap{width:min(1150px,92%);margin:0 auto}
+    .site-header{position:sticky;top:0;z-index:1000;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+    .nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:.7rem;font-family:'Fraunces',serif;font-size:1.45rem}.brand-mark{width:38px;height:38px;border-radius:10px;overflow:hidden;border:1px solid rgba(212,176,96,.35)} .brand-mark img{width:100%;height:100%;object-fit:cover}
+    .nav-links{display:flex;list-style:none;gap:.2rem}.nav-links a{padding:.45rem .95rem;border-radius:999px;color:var(--muted);font-size:.86rem}.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-right{display:flex;align-items:center;gap:.6rem}.nav-cta{padding:.52rem 1.15rem;border-radius:999px;font-size:.82rem;font-weight:700;background:linear-gradient(135deg,#2a4a38,var(--fern),var(--gold));color:#111}
+    .btn-icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-content:center;background:transparent;color:var(--text);cursor:pointer}
+    .mb-btn{display:none;background:transparent;border:1px solid var(--line);width:38px;height:38px;border-radius:50%;color:var(--text)} .mob-nav{display:none;flex-direction:column;border-top:1px solid var(--line);background:var(--header-bg-solid)}
+    .mob-nav a{padding:.9rem 5%;border-bottom:1px solid var(--line);color:var(--muted)} .mob-nav.open{display:flex}
+    main{padding:4rem 0}
+    .hero h1{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3.4rem)} .hero p{color:var(--muted);max-width:60ch;margin-top:1rem;line-height:1.75}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:1rem;margin-top:2rem}
+    .card{background:linear-gradient(140deg,var(--card-a),var(--card-b));border:1px solid var(--line);border-radius:var(--r);padding:1.2rem}
+    .info-item{display:flex;gap:.7rem;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid var(--line)}
+    .info-item:last-child{border-bottom:none}
+    .ico{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#2a4a38,var(--fern));display:grid;place-content:center;color:var(--gold);flex-shrink:0}
+    .label{font-size:.8rem;color:var(--gold)} .value{font-size:.9rem;color:var(--muted);margin-top:.15rem}
+    .form-grid{display:grid;gap:.8rem}
+    .field{display:grid;gap:.35rem}
+    .field label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .input{background:transparent;border:1px solid var(--line);border-radius:10px;padding:.75rem .85rem;color:var(--text);font-family:inherit}
+    .input:focus{outline:none;border-color:rgba(212,176,96,.5)}
+    .submit{margin-top:.4rem;border:none;border-radius:999px;padding:.7rem 1rem;background:linear-gradient(135deg,#2a4a38,var(--fern),var(--gold));color:#111;font-weight:700;cursor:pointer}
+    .map{margin-top:1rem;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .map iframe{width:100%;height:260px;border:none}
+    .footer{margin-top:4rem;background:var(--ink2);border-top:1px solid var(--line);padding:2rem 0 1rem}
+    .footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.78rem}
+    body.light{--ink:#f6f8ee;--ink2:#eef2df;--text:#1f2618;--muted:rgba(31,38,24,.75);--line:rgba(85,97,61,.22);--gold:#2d3522;--fern:#55613d;--header-bg:rgba(246,248,238,.9);--header-bg-solid:rgba(246,248,238,.98);--card-a:#ffffff;--card-b:#f2f5e8}
+    body.theme-forest{--ink:#0e1511;--ink2:#121b16;--text:#e6f5ec;--muted:rgba(230,245,236,.72);--line:rgba(124,183,147,.2);--gold:#a6d6b8;--fern:#3f7a5e;--header-bg:rgba(14,21,17,.9);--header-bg-solid:rgba(14,21,17,.98);--card-a:#14211a;--card-b:#101a14}
+    body.theme-gold{--ink:#15120c;--ink2:#1c1710;--text:#f8edd8;--muted:rgba(248,237,216,.73);--line:rgba(209,169,94,.23);--gold:#f0c778;--fern:#9b7338;--header-bg:rgba(21,18,12,.9);--header-bg-solid:rgba(21,18,12,.98);--card-a:#231a10;--card-b:#1a140d}
+    body.theme-ocean{--ink:#08131a;--ink2:#0d1b24;--text:#e5f6fb;--muted:rgba(229,246,251,.74);--line:rgba(109,184,207,.22);--gold:#9cd8ea;--fern:#2e7993;--header-bg:rgba(8,19,26,.9);--header-bg-solid:rgba(8,19,26,.98);--card-a:#0e1f2a;--card-b:#0b1720}
+    body.theme-rose{--ink:#1a0d13;--ink2:#22111a;--text:#fdebf3;--muted:rgba(253,235,243,.74);--line:rgba(224,142,176,.24);--gold:#f2b5cd;--fern:#94406b;--header-bg:rgba(26,13,19,.9);--header-bg-solid:rgba(26,13,19,.98);--card-a:#2a1621;--card-b:#20111a}
+    @media(max-width:900px){.nav-links,.nav-cta{display:none}.mb-btn{display:grid;place-content:center}.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap">
+      <a href="index.html" class="brand"><div class="brand-mark"><img src="img/Aptizio.jpeg" alt="Aptizio logo"></div><span>Aptizio</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-icon" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <a href="contact.html" class="nav-cta">Book a Call</a>
+        <button class="mb-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+    <div class="mob-nav" id="mobNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Let’s Talk About Your Project</h1>
+      <p>Share your goals and we will suggest the best package for web development, digital marketing, design, and content production.</p>
+    </section>
+
+    <section class="contact-grid">
+      <div class="card">
+        <div class="info-item"><div class="ico"><i class="fa-solid fa-phone"></i></div><div><div class="label">Phone</div><div class="value">+91 98765 43210</div></div></div>
+        <div class="info-item"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div><div class="label">Email</div><div class="value">hello@aptizio.in</div></div></div>
+        <div class="info-item"><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><div class="label">Address</div><div class="value">Kozhikode, Kerala, India</div></div></div>
+        <div class="info-item"><div class="ico"><i class="fa-brands fa-whatsapp"></i></div><div><div class="label">WhatsApp</div><div class="value"><a href="https://wa.me/919876543210" target="_blank">Chat with us instantly</a></div></div></div>
+      </div>
+
+      <form class="card form-grid" id="contactForm" data-emailjs-form>
+        <input type="hidden" name="time" value="">
+        <div class="field"><label>Your Name</label><input class="input" name="name" type="text" placeholder="Enter your name" required></div>
+        <div class="field"><label>Email Address</label><input class="input" name="email" type="email" placeholder="Enter your email" required></div>
+        <div class="field"><label>Business / title</label><input class="input" name="title" type="text" placeholder="Company or short subject"></div>
+        <div class="field"><label>Service</label><select class="input js-emailjs-service" required><option value="" disabled selected>Select a service…</option><option>Web Development</option><option>Digital Marketing</option><option>Meta Ads</option><option>Social Media Managing</option><option>Graphic Design</option><option>Video Production & Editing</option></select></div>
+        <div class="field"><label>Message</label><textarea class="input" name="message" rows="4" placeholder="Tell us what you need..." required></textarea></div>
+        <button class="submit" type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <div class="map">
+      <iframe title="Aptizio location map" src="https://www.google.com/maps?q=Kozhikode+Kerala+India&output=embed" loading="lazy"></iframe>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-bottom">
+      <span>© 2026 Aptizio. All rights reserved.</span>
+      <span><a href="portfolio.html">Portfolio</a> · <a href="pricing.html">Pricing</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/emailjs-ids.js"></script>
+  <script src="js/emailjs-contact.js"></script>
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobNav = document.getElementById("mobNav");
+    menuBtn.addEventListener("click", () => {
+      const open = mobNav.classList.toggle("open");
+      menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    const tb = document.getElementById("themeBtn");
+    const THEMES = ["dark", "light", "forest", "gold", "ocean", "rose"];
+    const THEME_ICONS = {dark:"fa-solid fa-moon",light:"fa-solid fa-sun",forest:"fa-solid fa-leaf",gold:"fa-solid fa-gem",ocean:"fa-solid fa-water",rose:"fa-solid fa-heart"};
+    function applyTheme(theme){
+      document.body.classList.remove("light","theme-forest","theme-gold","theme-ocean","theme-rose");
+      if(theme==="light") document.body.classList.add("light");
+      if(theme==="forest") document.body.classList.add("theme-forest");
+      if(theme==="gold") document.body.classList.add("theme-gold");
+      if(theme==="ocean") document.body.classList.add("theme-ocean");
+      if(theme==="rose") document.body.classList.add("theme-rose");
+      tb.querySelector("i").className = THEME_ICONS[theme] || THEME_ICONS.dark;
+      localStorage.setItem("aptizio-theme", theme);
+    }
+    const storedTheme = localStorage.getItem("aptizio-theme");
+    let themeIndex = Math.max(0, THEMES.indexOf(storedTheme || "dark"));
+    applyTheme(THEMES[themeIndex]);
+    tb.addEventListener("click", () => {
+      themeIndex = (themeIndex + 1) % THEMES.length;
+      applyTheme(THEMES[themeIndex]);
+    });
+  </script>
+</body>
+</html>

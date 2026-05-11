@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Aptizio</title>
+  <meta name="description" content="Aptizio service pricing for Meta ads, social media management, graphic design, and video production/editing.">
+  <link rel="icon" type="image/png" href="img/Aptizio1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --ink: #070a0d;
+      --ink2: #0c1014;
+      --surface: #111619;
+      --surface2: #161c21;
+      --text: #f0ece3;
+      --muted: rgba(240,236,227,.62);
+      --line: rgba(240,236,227,.09);
+      --gold: #c9a84c;
+      --gold-light: #e8ca7a;
+      --gold-dim: rgba(201,168,76,.18);
+      --green: #2d5a3d;
+      --green-bright: #3d7a55;
+      --header-bg: rgba(7,10,13,.88);
+      --r: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--text); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 99px; }
+
+    /* ── WRAP ── */
+    .wrap { width: min(1180px, 92%); margin: 0 auto; }
+
+    /* ── HEADER ── */
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--header-bg); backdrop-filter: blur(24px); border-bottom: 1px solid var(--line); }
+    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: .65rem; font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: -.01em; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(201,168,76,.3); }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-links { display: flex; list-style: none; gap: .15rem; }
+    .nav-links a { padding: .42rem .9rem; border-radius: 99px; color: var(--muted); font-size: .83rem; font-weight: 500; letter-spacing: .01em; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: .5rem; }
+    .nav-cta { padding: .5rem 1.2rem; border-radius: 99px; font-size: .8rem; font-weight: 600; background: var(--gold); color: #0a0800; letter-spacing: .02em; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .88; }
+    .btn-icon { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; display: grid; place-content: center; transition: border-color .2s, color .2s; }
+    .btn-icon:hover { border-color: rgba(201,168,76,.4); color: var(--gold); }
+    .mb-btn { display: none; background: transparent; border: 1px solid var(--line); width: 36px; height: 36px; border-radius: 50%; color: var(--text); cursor: pointer; place-content: center; }
+    .mob-nav { display: none; flex-direction: column; border-top: 1px solid var(--line); background: rgba(7,10,13,.97); }
+    .mob-nav a { padding: .9rem 5%; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .mob-nav.open { display: flex; }
+
+    /* ── HERO ── */
+    .hero { padding: 7rem 0 5rem; position: relative; overflow: hidden; }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label { display: inline-flex; align-items: center; gap: .5rem; padding: .3rem .75rem; border-radius: 99px; border: 1px solid rgba(201,168,76,.28); background: rgba(201,168,76,.06); color: var(--gold); font-size: .73rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.6rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5.5vw, 4.4rem); font-weight: 900; line-height: 1.07; letter-spacing: -.025em; max-width: 14ch; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 52ch; margin-top: 1.4rem; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary { padding: .72rem 1.6rem; border-radius: 99px; background: var(--gold); color: #090600; font-weight: 700; font-size: .88rem; letter-spacing: .025em; border: none; cursor: pointer; transition: opacity .2s, transform .15s; }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-ghost { padding: .7rem 1.6rem; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); font-size: .88rem; font-weight: 500; cursor: pointer; transition: border-color .2s, color .2s; }
+    .btn-ghost:hover { border-color: rgba(201,168,76,.35); color: var(--text); }
+
+    /* ── SECTION TITLE ── */
+    .sec-label { font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.18; }
+    .sec-title em { font-style: normal; color: var(--gold); }
+    .sec-sub { color: var(--muted); font-size: .95rem; line-height: 1.75; margin-top: .65rem; max-width: 58ch; font-weight: 300; }
+
+    /* ── DIVIDER ── */
+    .section { padding: 5rem 0; }
+    .section + .section { border-top: 1px solid var(--line); }
+
+    /* ── BILLING MODELS ── */
+    .models-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; margin-top: 2.8rem; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+    .model-item { background: var(--surface); padding: 1.6rem; position: relative; transition: background .2s; }
+    .model-item:hover { background: var(--surface2); }
+    .model-item::after { content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: var(--line); }
+    .model-item:last-child::after { display: none; }
+    .model-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--gold-dim); display: grid; place-content: center; color: var(--gold); font-size: .95rem; margin-bottom: 1rem; }
+    .model-label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+    .model-price { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; margin-bottom: .4rem; }
+    .model-note { color: var(--muted); font-size: .84rem; line-height: 1.6; font-weight: 300; }
+
+    /* ── PLAN CARDS ── */
+    .plans-toggle { display: flex; justify-content: center; margin: 2.2rem 0; }
+    .toggle-wrap { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 4px; }
+    .toggle-btn { padding: .42rem 1.2rem; border-radius: 99px; font-size: .82rem; font-weight: 500; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: background .2s, color .2s; }
+    .toggle-btn.active { background: var(--gold); color: #090600; }
+    .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .25s, transform .2s;
+    }
+    .plan-card:hover { border-color: rgba(201,168,76,.22); transform: translateY(-3px); }
+    .plan-card.featured {
+      background: linear-gradient(160deg, #1a1408 0%, #12100a 100%);
+      border-color: rgba(201,168,76,.45);
+      box-shadow: 0 0 60px rgba(201,168,76,.08), inset 0 1px 0 rgba(201,168,76,.15);
+    }
+    .plan-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #090600; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .22rem .8rem; border-radius: 0 0 10px 10px; white-space: nowrap; }
+    .plan-name { font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--gold); margin-bottom: .65rem; }
+    .plan-price { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; line-height: 1; }
+    .plan-period { font-size: .82rem; color: var(--muted); font-weight: 400; }
+    .plan-desc { color: var(--muted); font-size: .88rem; line-height: 1.65; margin: .8rem 0 1.4rem; flex: 0; font-weight: 300; }
+    .plan-divider { border: none; border-top: 1px solid var(--line); margin: 1.2rem 0; }
+    .plan-list { list-style: none; display: grid; gap: .55rem; flex: 1; }
+    .plan-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .87rem; color: var(--muted); font-weight: 300; }
+    .plan-list li i { color: var(--gold); font-size: .7rem; margin-top: .22rem; flex-shrink: 0; }
+    .plan-cta { margin-top: 1.6rem; display: block; text-align: center; padding: .72rem; border-radius: 10px; font-size: .86rem; font-weight: 600; letter-spacing: .02em; transition: opacity .2s, transform .15s; cursor: pointer; }
+    .plan-cta-outline { border: 1px solid var(--line); color: var(--text); }
+    .plan-cta-outline:hover { border-color: rgba(201,168,76,.4); color: var(--gold); }
+    .plan-cta-solid { background: var(--gold); color: #090600; border: none; }
+    .plan-cta-solid:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ── SERVICE PACKS ── */
+    .packs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 2.8rem; }
+    .pack {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .25s, transform .2s;
+    }
+    .pack:hover { border-color: rgba(201,168,76,.22); transform: translateY(-3px); }
+    .pack-img-wrap { position: relative; height: 168px; overflow: hidden; }
+    .pack-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .pack:hover .pack-img-wrap img { transform: scale(1.04); }
+    .pack-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,10,13,.7) 0%, transparent 55%); }
+    .pack-body { padding: 1.3rem; flex: 1; display: flex; flex-direction: column; }
+    .pack-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem; }
+    .pack-price { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: var(--gold); margin-bottom: .8rem; }
+    .pack-items { list-style: none; display: grid; gap: .38rem; margin-top: auto; }
+    .pack-items li { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--muted); font-weight: 300; }
+    .pack-items li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; opacity: .7; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      margin: 4rem 0;
+      background: linear-gradient(135deg, rgba(201,168,76,.12) 0%, rgba(61,122,85,.1) 100%);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 22px;
+      padding: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cta-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 700; }
+    .cta-strip p { color: var(--muted); font-size: .92rem; margin-top: .5rem; font-weight: 300; }
+    .cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+
+    /* ── FAQ ── */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 2.8rem; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+    .faq-item { background: var(--surface); padding: 1.6rem 1.8rem; transition: background .2s; }
+    .faq-item:hover { background: var(--surface2); }
+    .faq-q { font-weight: 600; font-size: .95rem; margin-bottom: .55rem; display: flex; align-items: center; gap: .6rem; }
+    .faq-q i { color: var(--gold); font-size: .75rem; }
+    .faq-a { color: var(--muted); font-size: .86rem; line-height: 1.7; font-weight: 300; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--ink2); border-top: 1px solid var(--line); padding: 3.5rem 0 1.4rem; margin-top: 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
+    .ft-brand { display: flex; align-items: center; gap: .65rem; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: .9rem; }
+    .ft-logo { width: 32px; height: 32px; border-radius: 9px; overflow: hidden; border: 1px solid rgba(201,168,76,.3); }
+    .ft-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .ft-desc { color: var(--muted); font-size: .85rem; line-height: 1.72; max-width: 30ch; font-weight: 300; }
+    .ft-head { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 700; }
+    .ft-links { list-style: none; display: grid; gap: .5rem; }
+    .ft-links a { color: var(--muted); font-size: .85rem; transition: color .2s; font-weight: 300; }
+    .ft-links a:hover { color: var(--text); }
+    .ft-contact { color: var(--muted); font-size: .85rem; margin-bottom: .35rem; font-weight: 300; display: flex; align-items: center; gap: .5rem; }
+    .ft-contact i { color: var(--gold); font-size: .78rem; }
+    .footer-bottom { padding-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: .77rem; }
+    .footer-bottom a { color: var(--muted); transition: color .2s; }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 920px) {
+      .nav-links, .nav-cta { display: none; }
+      .mb-btn { display: grid; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .models-grid { grid-template-columns: repeat(2, 1fr); }
+      .model-item::after { display: none; }
+      .cta-strip { padding: 2.2rem; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .models-grid { grid-template-columns: 1fr; }
+      .packs-grid { grid-template-columns: 1fr; }
+      .hero { padding: 4.5rem 0 3.5rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .anim { animation: fadeUp .55s ease both; }
+    .anim-1 { animation-delay: .1s; }
+    .anim-2 { animation-delay: .2s; }
+    .anim-3 { animation-delay: .3s; }
+    .anim-4 { animation-delay: .4s; }
+
+    /* ── LIGHT THEME ── */
+    body.light {
+      --ink: #f5f2ea;
+      --ink2: #ece9e0;
+      --surface: #ffffff;
+      --surface2: #f9f7f1;
+      --text: #161209;
+      --muted: rgba(22,18,9,.62);
+      --line: rgba(22,18,9,.1);
+      --gold: #96700a;
+      --gold-light: #b8891a;
+      --gold-dim: rgba(150,112,10,.1);
+      --header-bg: rgba(245,242,234,.9);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><img src="img/Aptizio.jpeg" alt="Aptizio"></div>
+        <span>Aptizio</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a class="active" href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-icon" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <a href="contact.html" class="nav-cta">Book a Call</a>
+        <button class="mb-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+    <div class="mob-nav" id="mobNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-label anim anim-1"><i class="fa-solid fa-bolt"></i> Transparent Pricing</div>
+        <h1 class="anim anim-2">Plans built for <em>every</em> growth stage.</h1>
+        <p class="hero-sub anim anim-3">Performance marketing, social media, stunning creatives, and short-form video — all under one roof. No hidden fees, no surprises.</p>
+        <div class="hero-actions anim anim-4">
+          <a href="contact.html" class="btn-primary">Start with a Free Call</a>
+          <a href="#plans" class="btn-ghost">View Plans <i class="fa-solid fa-arrow-down" style="font-size:.75em;margin-left:.3rem"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BILLING MODELS ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-label">How We Charge</div>
+        <div class="sec-title">Flexible <em>billing models</em></div>
+        <p class="sec-sub">Choose the engagement style that fits your project and budget — no long-term lock-ins required.</p>
+
+        <div class="models-grid">
+          <div class="model-item">
+            <div class="model-icon"><i class="fa-regular fa-calendar"></i></div>
+            <div class="model-label">Monthly Retainer</div>
+            <div class="model-price">From ₹25,000<span style="font-family:'DM Sans';font-size:.9rem;color:var(--muted)">/mo</span></div>
+            <p class="model-note">Best for ongoing marketing, design, and weekly content production.</p>
+          </div>
+          <div class="model-item">
+            <div class="model-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="model-label">Project Based</div>
+            <div class="model-price">From ₹18,000<span style="font-family:'DM Sans';font-size:.9rem;color:var(--muted)">/project</span></div>
+            <p class="model-note">One-time projects for website builds, brand kits, or campaign launches.</p>
+          </div>
+          <div class="model-item">
+            <div class="model-icon"><i class="fa-brands fa-meta"></i></div>
+            <div class="model-label">Ad Spend Management</div>
+            <div class="model-price">From 12%<span style="font-family:'DM Sans';font-size:.9rem;color:var(--muted)"> of spend</span></div>
+            <p class="model-note">Performance fee based on your monthly Meta ad budget size.</p>
+          </div>
+          <div class="model-item">
+            <div class="model-icon"><i class="fa-solid fa-film"></i></div>
+            <div class="model-label">Video Editing Pack</div>
+            <div class="model-price">From ₹8,000<span style="font-family:'DM Sans';font-size:.9rem;color:var(--muted)">/mo</span></div>
+            <p class="model-note">Short-form editing plans for reels, ads, and social-first video content.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MONTHLY PLANS ── -->
+    <section class="section" id="plans">
+      <div class="wrap">
+        <div class="sec-label">Monthly Plans</div>
+        <div class="sec-title">Pick your <em>growth plan</em></div>
+        <p class="sec-sub">Every plan includes dedicated account management, monthly performance reports, and priority support.</p>
+
+        <div class="plans-toggle">
+          <div class="toggle-wrap">
+            <button class="toggle-btn active" id="monthly-btn">Monthly</button>
+            <button class="toggle-btn" id="annual-btn">Annual <span style="color:var(--gold);font-size:.78em;font-weight:700"> · Save 15%</span></button>
+          </div>
+        </div>
+
+        <div class="plans-grid">
+          <!-- Starter -->
+          <div class="plan-card">
+            <div class="plan-name">Starter</div>
+            <div class="plan-price" data-monthly="25,000" data-annual="21,250">₹25,000<span class="plan-period">/mo</span></div>
+            <p class="plan-desc">For small businesses starting digital growth with consistent content and ads.</p>
+            <hr class="plan-divider">
+            <ul class="plan-list">
+              <li><i class="fa-solid fa-check"></i> Meta ads setup + basic optimization</li>
+              <li><i class="fa-solid fa-check"></i> 12 social media posts per month</li>
+              <li><i class="fa-solid fa-check"></i> 10 graphic designs per month</li>
+              <li><i class="fa-solid fa-check"></i> 4 edited short videos per month</li>
+              <li><i class="fa-solid fa-check"></i> Monthly performance report</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+            </ul>
+            <a href="contact.html" class="plan-cta plan-cta-outline">Get Started</a>
+          </div>
+
+          <!-- Growth (featured) -->
+          <div class="plan-card featured">
+            <span class="plan-badge">Most Popular</span>
+            <div class="plan-name">Growth</div>
+            <div class="plan-price" data-monthly="45,000" data-annual="38,250">₹45,000<span class="plan-period">/mo</span></div>
+            <p class="plan-desc">For brands scaling leads, presence, and creative output month over month.</p>
+            <hr class="plan-divider">
+            <ul class="plan-list">
+              <li><i class="fa-solid fa-check"></i> Meta ads management + A/B testing</li>
+              <li><i class="fa-solid fa-check"></i> 20 social media posts per month</li>
+              <li><i class="fa-solid fa-check"></i> 20 custom graphic designs per month</li>
+              <li><i class="fa-solid fa-check"></i> 8 edited short videos per month</li>
+              <li><i class="fa-solid fa-check"></i> Retargeting strategy included</li>
+              <li><i class="fa-solid fa-check"></i> Bi-weekly strategy calls</li>
+              <li><i class="fa-solid fa-check"></i> Priority support</li>
+            </ul>
+            <a href="contact.html" class="plan-cta plan-cta-solid">Get Started</a>
+          </div>
+
+          <!-- Premium -->
+          <div class="plan-card">
+            <div class="plan-name">Premium</div>
+            <div class="plan-price" data-monthly="75,000" data-annual="63,750">₹75,000<span class="plan-period">/mo</span></div>
+            <p class="plan-desc">Full creative + ad execution for businesses demanding maximum output and scale.</p>
+            <hr class="plan-divider">
+            <ul class="plan-list">
+              <li><i class="fa-solid fa-check"></i> Advanced Meta ads scaling + retargeting</li>
+              <li><i class="fa-solid fa-check"></i> 30 social media posts per month</li>
+              <li><i class="fa-solid fa-check"></i> 30 high-end graphic creatives per month</li>
+              <li><i class="fa-solid fa-check"></i> 12 videos with motion graphics</li>
+              <li><i class="fa-solid fa-check"></i> Full brand consistency audits</li>
+              <li><i class="fa-solid fa-check"></i> Weekly strategy calls</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 priority support</li>
+            </ul>
+            <a href="contact.html" class="plan-cta plan-cta-outline">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICE PACKAGES ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-label">Individual Services</div>
+        <div class="sec-title">Standalone <em>packages</em></div>
+        <p class="sec-sub">Need just one service? Pick a standalone package and scale when you're ready.</p>
+
+        <div class="packs-grid">
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=700&q=80" alt="Web Development" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">Web Development</div>
+              <div class="pack-price">From ₹30,000</div>
+              <ul class="pack-items">
+                <li>Business website UI/UX</li>
+                <li>Responsive pages + forms</li>
+                <li>Speed + basic SEO setup</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=700&q=80" alt="SEO Optimization" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">SEO Optimization</div>
+              <div class="pack-price">From ₹16,000<span style="font-size:.82rem;color:var(--muted)">/mo</span></div>
+              <ul class="pack-items">
+                <li>Keyword research + mapping</li>
+                <li>On-page and technical SEO</li>
+                <li>Monthly ranking + traffic report</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Digital Marketing" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">Digital Marketing</div>
+              <div class="pack-price">From ₹22,000<span style="font-size:.82rem;color:var(--muted)">/mo</span></div>
+              <ul class="pack-items">
+                <li>Campaign planning + execution</li>
+                <li>Content + ad support</li>
+                <li>Monthly performance report</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=700&q=80" alt="Brand Identity" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">Brand Identity</div>
+              <div class="pack-price">From ₹20,000</div>
+              <ul class="pack-items">
+                <li>Logo and visual style system</li>
+                <li>Color, typography, brand guide</li>
+                <li>Core brand asset kit delivery</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=700&q=80" alt="UI UX Design" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">UI / UX Design</div>
+              <div class="pack-price">From ₹18,000</div>
+              <ul class="pack-items">
+                <li>User flow and wireframe design</li>
+                <li>Modern interface design screens</li>
+                <li>Handoff-ready design components</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=700&q=80" alt="Meta Ads" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">Performance Marketing</div>
+              <div class="pack-price">From ₹18,000<span style="font-size:.82rem;color:var(--muted)">/mo</span></div>
+              <ul class="pack-items">
+                <li>Audience research + targeting</li>
+                <li>Ad set structure + A/B testing</li>
+                <li>Retargeting and scale strategy</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=700&q=80" alt="Social Media" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">Social Media Managing</div>
+              <div class="pack-price">From ₹15,000<span style="font-size:.82rem;color:var(--muted)">/mo</span></div>
+              <ul class="pack-items">
+                <li>Monthly content calendar</li>
+                <li>Post/reel publishing + engagement</li>
+                <li>Growth and insight tracking</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Graphic Design" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">Graphic Design</div>
+              <div class="pack-price">From ₹12,000<span style="font-size:.82rem;color:var(--muted)">/mo</span></div>
+              <ul class="pack-items">
+                <li>Social creatives + banners</li>
+                <li>Brand visual consistency</li>
+                <li>Ad creatives for campaigns</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pack">
+            <div class="pack-img-wrap">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=700&q=80" alt="Video Production" loading="lazy">
+              <div class="pack-img-overlay"></div>
+            </div>
+            <div class="pack-body">
+              <div class="pack-title">Video Production & Editing</div>
+              <div class="pack-price">From ₹14,000<span style="font-size:.82rem;color:var(--muted)">/mo</span></div>
+              <ul class="pack-items">
+                <li>Short-form reels and ads</li>
+                <li>Editing, color and captions</li>
+                <li>Platform-ready exports</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-label">FAQ</div>
+        <div class="sec-title">Common <em>questions</em></div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-q"><i class="fa-solid fa-circle-dot"></i> Can I switch plans anytime?</div>
+            <p class="faq-a">Yes. You can upgrade or downgrade your plan at any time. Changes take effect from the next billing cycle with no penalties.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><i class="fa-solid fa-circle-dot"></i> Is ad spend included in the plan price?</div>
+            <p class="faq-a">No. Ad spend goes directly to Meta. Our fee covers setup, management, creative production, and optimisation — not the media spend itself.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><i class="fa-solid fa-circle-dot"></i> Do you offer custom plans?</div>
+            <p class="faq-a">Absolutely. If none of the standard plans fit, book a free call and we'll build a custom scope and pricing around your specific goals.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><i class="fa-solid fa-circle-dot"></i> What's the minimum commitment?</div>
+            <p class="faq-a">Monthly retainers run month-to-month with no lock-in. Project-based work starts after a signed brief and an initial deposit.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><i class="fa-solid fa-circle-dot"></i> How do you report on results?</div>
+            <p class="faq-a">Every plan includes a monthly performance report covering reach, engagement, ad performance, and growth metrics. Growth and Premium plans also include strategy calls.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><i class="fa-solid fa-circle-dot"></i> Do you work with international clients?</div>
+            <p class="faq-a">Yes. We work with clients across India and internationally. All payments are accepted via bank transfer, UPI, Razorpay, and Stripe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA STRIP ── -->
+    <div class="wrap">
+      <div class="cta-strip">
+        <div>
+          <h2>Not sure which plan fits?</h2>
+          <p>Book a free 30-minute strategy call and we'll recommend the right package for your goals and budget.</p>
+        </div>
+        <div class="cta-strip-actions">
+          <a href="contact.html" class="btn-primary">Book Free Call</a>
+          <a href="services.html" class="btn-ghost">View Services</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="ft-brand"><div class="ft-logo"><img src="img/Aptizio.jpeg" alt="Aptizio"></div><span>Aptizio</span></div>
+          <p class="ft-desc">Premium digital agency focused on measurable growth and elegant experiences for ambitious brands.</p>
+        </div>
+        <div>
+          <div class="ft-head">Services</div>
+          <ul class="ft-links">
+            <li><a href="services.html">Performance Marketing</a></li>
+            <li><a href="services.html">Social Media Management</a></li>
+            <li><a href="services.html">Graphic Design</a></li>
+            <li><a href="services.html">Video Editing</a></li>
+            <li><a href="services.html">Web Development</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-head">Contact</div>
+          <p class="ft-contact"><i class="fa-solid fa-envelope"></i> hello@aptizio.in</p>
+          <p class="ft-contact"><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p class="ft-contact"><i class="fa-solid fa-location-dot"></i> Kozhikode, Kerala</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Aptizio. All rights reserved.</span>
+        <span><a href="portfolio.html">Portfolio</a> · <a href="pricing.html">Pricing</a> · <a href="contact.html">Contact</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobNav = document.getElementById("mobNav");
+    menuBtn.addEventListener("click", () => {
+      const open = mobNav.classList.toggle("open");
+      menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Theme toggle
+    const tb = document.getElementById("themeBtn");
+    let isLight = false;
+    tb.addEventListener("click", () => {
+      isLight = !isLight;
+      document.body.classList.toggle("light", isLight);
+      tb.querySelector("i").className = isLight ? "fa-solid fa-moon" : "fa-solid fa-sun";
+      localStorage.setItem("aptizio-theme", isLight ? "light" : "dark");
+    });
+    if (localStorage.getItem("aptizio-theme") === "light") {
+      isLight = true;
+      document.body.classList.add("light");
+      tb.querySelector("i").className = "fa-solid fa-moon";
+    }
+
+    // Billing toggle
+    const monthlyBtn = document.getElementById("monthly-btn");
+    const annualBtn = document.getElementById("annual-btn");
+    const prices = document.querySelectorAll(".plan-price");
+    let isAnnual = false;
+
+    function updatePrices() {
+      prices.forEach(el => {
+        const m = el.dataset.monthly;
+        const a = el.dataset.annual;
+        if (isAnnual) {
+          el.innerHTML = `₹${a}<span class="plan-period">/mo</span>`;
+        } else {
+          el.innerHTML = `₹${m}<span class="plan-period">/mo</span>`;
+        }
+      });
+    }
+
+    monthlyBtn.addEventListener("click", () => {
+      isAnnual = false;
+      monthlyBtn.classList.add("active");
+      annualBtn.classList.remove("active");
+      updatePrices();
+    });
+
+    annualBtn.addEventListener("click", () => {
+      isAnnual = true;
+      annualBtn.classList.add("active");
+      monthlyBtn.classList.remove("active");
+      updatePrices();
+    });
+
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = "fadeUp .5s ease both";
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".pack, .plan-card, .faq-item, .model-item").forEach(el => {
+      el.style.opacity = "0";
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
