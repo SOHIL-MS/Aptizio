@@ -6,7 +6,7 @@
  * Open the site in Chrome or Edge (file or http), or use EmailJS for in-page send.
  */
 (function () {
-  var EMAILJS_PUBLIC_KEY = "ExE9P3sJkzDd4N7Lr";
+  var EMAILJS_PUBLIC_KEY = "bHbTaa14jxFL7flQF";
   var MAILTO = "info@aptizio.in";
   var emailjsInitialized = false;
 
