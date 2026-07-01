@@ -5,6 +5,6 @@
  * Leave both empty to use mailto (only works in a normal browser tab, not editor previews).
  */
 window.APTIZIO_EMAILJS = {
-  serviceId: "",
-  templateId: ""
+  serviceId: "service_ikpuofk",
+  templateId: "template_z5i6eau"
 };
